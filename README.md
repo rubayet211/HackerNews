@@ -1,10 +1,10 @@
-# news
+# Hacker News
 
-A new Flutter project.
+A new Flutter project based on the site: https://news.ycombinator.com/.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+This project is a starting point for a Flutter application where I try to use a firebase API to get information and turn it into an app.
 
 A few resources to get you started if this is your first Flutter project:
 

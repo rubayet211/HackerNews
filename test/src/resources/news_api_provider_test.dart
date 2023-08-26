@@ -22,4 +22,17 @@ void main() {
       expect(ids, [1, 2, 3, 4]);
     },
   );
+
+  test('FetchItem returns an item model', () async {
+    final newsApi = NewsAPIProvider();
+    newsApi.client = MockClient(
+      (request) async {
+        final jsonMap = {'id': 123};
+        return Response(json.encode(jsonMap), 200);
+      },
+    );
+    final item = await newsApi.fetchItem(999);
+
+    expect(item.id, 123);
+  });
 }

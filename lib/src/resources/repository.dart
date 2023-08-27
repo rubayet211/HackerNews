@@ -12,6 +12,14 @@ class Repository {
   }
 
   fetchItem(int id) async {
-    await dbProvider.fetchItem(id);
+    var item = await dbProvider.fetchItem(id);
+    if (item != null) {
+      return item;
+    }
+
+    item = await apiProvider.fetchItem(id);
+    dbProvider.addItem(item);
+
+    return item;
   }
 }

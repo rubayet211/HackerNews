@@ -14,7 +14,7 @@ class NewsAPIProvider {
     final response = await client.get(uri);
     final ids = json.decode(response.body);
 
-    return ids;
+    return ids.cast<int>();
   }
 
   Future<ItemModel> fetchItem(int id) async {

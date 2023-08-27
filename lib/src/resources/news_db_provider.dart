@@ -6,7 +6,7 @@ import 'dart:async';
 import '../models/item_model.dart';
 
 class NewsDbProvider {
-  Database db;
+  late Database db;
 
   init() async {
     Directory documentsDirectory = await getApplicationDocumentsDirectory();
@@ -47,5 +47,9 @@ class NewsDbProvider {
     }
 
     return null;
+  }
+
+  addItem(ItemModel item) {
+    return db.insert("Items", item.toMap());
   }
 }
